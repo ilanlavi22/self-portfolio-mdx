@@ -1,18 +1,18 @@
 import Intro from '@/components/Intro'
-import RecentPosts from '@/components/recent-posts'
-import RecentProjects from '@/components/recent-projects'
-import NewsletterForm from '@/components/newsletter-form'
+import About from '@/components/About'
+// import RecentPosts from '@/components/recent-posts'
+// import RecentProjects from '@/components/recent-projects'
+// import NewsletterForm from '@/components/newsletter-form'
 
 export default function Home() {
   return (
     <section className='pb-24 pt-40'>
       <div className='container max-w-3xl'>
         <Intro />
-
-        <RecentPosts />
+        <About />
+        {/* <RecentPosts />
         <RecentProjects />
-
-        <NewsletterForm />
+        <NewsletterForm /> */}
       </div>
     </section>
   )
