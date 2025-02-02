@@ -1,0 +1,138 @@
+---
+  title: Debounce - Optimization Performance JavaScript
+  summary: Debouncing is a programming practice that limits the rate at which a function can fire. It's particularly useful in scenarios where you want to delay the execution of a function until after a certain amount of time has passed since its last invocation.
+  image: /images/posts/debounce-optimization-performance.png
+  author: 'Ilan Lavi'
+  publishedAt: '2025-01-02'
+---
+
+## What is Debouncing?
+
+Debouncing is a programming practice that limits the rate at which a function
+can fire. It's particularly useful in scenarios where you want to delay the
+execution of a function until after a certain amount of time has passed since
+its last invocation.
+
+## Why Use Debouncing?
+
+- Prevents excessive API calls
+- Reduces server load and resource consumption
+- Improves application performance
+- Prevents rate limiting issues
+
+## Implementation in JavaScript
+
+Here's a basic implementation of a debounce function:
+
+```jsx
+const debounce = (func, wait) => {
+  let timeout
+
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout)
+      func(...args)
+    }
+
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+  }
+}
+```
+
+## Basic Usage with Input Fields
+
+A common use case is debouncing input field changes:
+
+```jsx
+const Input = () => {
+  const onChange = e => {
+    // Function will only be called 500ms after the user stops typing
+  }
+
+  const debouncedOnChange = debounce(onChange, 500)
+
+  return <input onChange={debouncedOnChange} />
+}
+```
+
+## Using Debounce in React with react-use
+
+The react-use library provides a convenient useDebounce hook for React
+applications.
+
+### Installation
+
+```bash
+npm i react-use
+```
+
+### Example Implementation
+
+```jsx
+import { useEffect, useState } from 'react'
+import { useDebounce } from 'react-use'
+
+const SearchComponent = () => {
+  const [state, setState] = useState('Typing stopped')
+  const [value, setValue] = useState('')
+  const [debouncedValue, setDebouncedValue] = useState('')
+
+  const [, cancel] = useDebounce(
+    () => {
+      setState('Typing stopped')
+      setDebouncedValue(value)
+    },
+    2000,
+    [value]
+  )
+
+  return (
+    <div>
+      <input
+        type='text'
+        value={value}
+        placeholder='Search'
+        onChange={({ currentTarget }) => {
+          setState('Waiting for typing to stop...')
+          setValue(currentTarget.value)
+        }}
+      />
+      <div>{state}</div>
+      <div>Debounced value: {debouncedValue}</div>
+    </div>
+  )
+}
+```
+
+## Real-World Application: API Calls
+
+Here's how to implement debouncing with API calls:
+
+```jsx
+import { useEffect, useState } from 'react'
+import { useDebounce } from 'react-use'
+
+export default function SearchPage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
+
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm])
+
+  useEffect(() => {
+    // API call will only be made after user stops typing
+    fetchData(debouncedSearchTerm)
+  }, [debouncedSearchTerm])
+
+  // Implementation continues...
+}
+```
+
+## Best Practices
+
+- Choose an appropriate delay time based on your use case (typically 300-500ms
+  for search inputs)
+- Always clean up timeouts in React components using useEffect cleanup function
+- Consider using established libraries like react-use for production
+  applications
+- Test debounce functionality with different timing scenarios

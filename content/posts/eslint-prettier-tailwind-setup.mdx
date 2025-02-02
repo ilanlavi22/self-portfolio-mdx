@@ -1,0 +1,101 @@
+---
+  title: Setting Up ESLint and Prettier in Next.js with Tailwind CSS
+  summary: This guide explains how to set up ESLint and Prettier in a Next.js project, including configuration for Tailwind CSS class sorting. This setup ensures consistent code formatting and helps maintain clean, standardized code across your project.
+  image: /images/posts/eslint-prettier-tailwind-setup.png
+  author: 'Ilan Lavi'
+  publishedAt: '2025-01-02'
+---
+
+## Introduction
+
+This guide explains how to set up ESLint and Prettier in a Next.js project,
+including configuration for Tailwind CSS class sorting. This setup ensures
+consistent code formatting and helps maintain clean, standardized code across
+your project.
+
+## Installation
+
+First, install the necessary dependencies using npm:
+
+```bash
+npm install -D eslint-plugin-tailwindcss
+npm install -D eslint-config-prettier
+npm install -D prettier
+npm install -D prettier-plugin-tailwindcss
+```
+
+## ESLint Configuration
+
+Create or update your ESLint configuration file (`eslint.config.mjs`) with the
+following settings:
+
+```jsx
+const eslintConfig = [
+  ...compat.extends(
+    'next/core-web-vitals',
+    'next/typescript',
+    'plugin:tailwindcss/recommended',
+    'prettier'
+  )
+]
+```
+
+This configuration:
+
+- Extends Next.js core web vitals rules
+- Includes TypeScript support
+- Adds Tailwind CSS linting recommendations
+- Integrates Prettier to avoid conflicts
+
+## VS Code Settings
+
+Create or update `.vscode/settings.json` with these configurations:
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.addMissingImports": "explicit"
+  },
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
+  "prettier.jsxSingleQuote": false,
+  "prettier.trailingComma": "es5",
+  "prettier.arrowParens": "always",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
+```
+
+## Key Features
+
+- Automatic formatting on save
+- Automatic ESLint fixes on save
+- Automatic import organization
+- Tailwind CSS class sorting
+- Consistent formatting rules across different file types
+
+## Benefits
+
+This setup provides:
+
+- Consistent code style across your team
+- Automatic Tailwind CSS class organization
+- Improved code readability
+- Reduced time spent on manual formatting
+- Better development experience with VS Code
