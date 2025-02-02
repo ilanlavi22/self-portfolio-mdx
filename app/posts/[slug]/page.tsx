@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
 import { formatDate } from '@/lib/utils'
 import MDXContent from '@/components/mdx-content'
@@ -12,6 +13,23 @@ export async function generateStaticParams() {
   const slugs = posts.map(post => ({ slug: post.slug }))
 
   return slugs
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string }
+}) {
+  const { slug } = params
+  const post = await getPostBySlug(slug)
+  const title = post?.metadata.title
+
+  return {
+    title: `${title} | React.js Frontend Developer | Next.js Full-Stack  Developer`,
+
+    description:
+      'Ilan Lavi is a Berlin-based React.js Frontend Developer with a focus on Next.js Full-Stack Development.'
+  }
 }
 
 export default async function Post({ params }: { params: { slug: string } }) {
