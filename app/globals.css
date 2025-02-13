@@ -41,17 +41,19 @@
   }
 }
 
-.stack-skills {
-  @apply !m-0 !p-0 font-proxima !text-[11px] font-bold uppercase leading-none text-white/80;
-  div {
-    @apply w-auto gap-x-5 gap-y-3;
-
+@layer components {
+  .stack-skills {
+    @apply !m-0 !p-0 font-proxima !text-[11px] font-bold uppercase leading-none text-white/80;
     div {
-      @apply !mt-0;
-    }
+      @apply !gap-x-5 !gap-y-3;
 
-    svg {
-      @apply !h-5 !w-5;
+      div {
+        @apply !mt-0;
+      }
+
+      svg {
+        @apply !h-5 !w-5;
+      }
     }
   }
 }
