@@ -41,13 +41,12 @@ function ScrollContext({ children }: { children: React.ReactNode }) {
       // infinite: false,
       // easing: t => t
     })
-    let rf
+    const rf = requestAnimationFrame(raf)
 
     function raf(time: number) {
       scroller.raf(time)
       requestAnimationFrame(raf)
     }
-    rf = requestAnimationFrame(raf)
     setRafState(rf)
     setLenisRef(scroller)
 

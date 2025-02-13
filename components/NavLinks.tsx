@@ -18,7 +18,7 @@ export default function NavLink({
   return (
     <Link
       className={cn(
-        'hover:text-theme-gray transition-colors duration-300',
+        'transition-colors duration-300 hover:text-theme-gray',
         isActive ? `text-theme-gray transition-colors ${className}` : className
       )}
       href={href}

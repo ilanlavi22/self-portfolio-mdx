@@ -55,19 +55,19 @@ export default function Footer() {
                 <span className='sr-only'>{item.name}</span>
                 <item.icon
                   aria-hidden='true'
-                  className='text-theme-gray h-6 w-6'
+                  className='h-6 w-6 text-theme-gray'
                 />
               </a>
             ))}
           </div>
 
-          <nav className='text-theme-gray-shade mt-4 flex items-center justify-center gap-2 font-proxima text-sm font-bold uppercase md:mt-0'>
-            <NavLink href='/work'>Work</NavLink>
+          <nav className='mt-4 flex items-center justify-center gap-2 font-proxima text-sm font-bold uppercase text-theme-gray-shade md:mt-0'>
+            {/* <NavLink href='/work'>Work</NavLink> */}
             <NavLink href='/posts'>Posts</NavLink>
-            <NavLink href='/contact'>Contact</NavLink>
+            {/* <NavLink href='/contact'>Contact</NavLink> */}
           </nav>
         </div>
-        <div className='text-theme-gray-shade mt-3 text-center font-proxima text-sm'>
+        <div className='mt-3 text-center font-proxima text-sm text-theme-gray-shade'>
           &copy; {new Date().getFullYear()} Ilan Lavi. All rights reserved.
         </div>
       </div>

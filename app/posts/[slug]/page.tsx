@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 
 import { formatDate } from '@/lib/utils'
 import MDXContent from '@/components/mdx-content'
@@ -41,16 +40,16 @@ export default async function Post({ params }: { params: { slug: string } }) {
   }
 
   const { metadata, content } = post
-  const { title, image, author, publishedAt } = metadata
+  const { title, image, publishedAt } = metadata
 
   return (
     <section className='mt-40'>
       <div className='mx-auto max-w-6xl px-8'>
         <header>
-          <h1 className='text-theme-gray text-balance text-3xl font-bold leading-[1.1] lg:text-[52px]'>
+          <h1 className='text-balance text-3xl font-bold leading-[1.1] text-theme-gray lg:text-[52px]'>
             {title}
           </h1>
-          <p className='text-theme-red mt-3 font-bold uppercase'>
+          <p className='mt-3 font-bold uppercase text-theme-red'>
             {formatDate(publishedAt ?? '')}
           </p>
         </header>
@@ -59,7 +58,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <div className='mx-auto max-w-6xl px-8 py-12 font-adventor'>
         <Link
           href='/posts'
-          className='text-theme-gray mb-8 inline-flex items-center gap-2 text-sm font-bold'
+          className='mb-8 inline-flex items-center gap-2 text-sm font-bold text-theme-gray'
         >
           <ArrowLeftIcon className='h-5 w-5' />
           <span>Back to posts</span>
@@ -76,7 +75,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        <main className='text-theme-gray prose mt-16 max-w-none font-proxima text-base dark:prose-invert'>
+        <main className='prose mt-16 max-w-none font-proxima text-base text-theme-gray dark:prose-invert'>
           <MDXContent source={content} />
         </main>
 

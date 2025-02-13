@@ -2,17 +2,17 @@ export default function Hero() {
   return (
     <div className='min-h-[80svh] w-full'>
       <div className='relative z-10 my-24 flex w-full items-center justify-center gap-2'>
-        <p className='text-theme-gray mt-1 p-[40px] text-center font-adventor font-bold uppercase tracking-[-0.2rem] lg:leading-[120px]'>
+        <p className='mt-1 p-[40px] text-center font-adventor font-bold uppercase tracking-[-0.2rem] text-theme-gray lg:leading-[120px]'>
           <span className='inline-flex pb-4 text-lg font-bold uppercase tracking-[0.4rem]'>
             Ilan Lavi
           </span>
-          <span className='text-theme-red block leading-[80px] tracking-[0.1rem] lg:text-[120px]'>
+          <span className='block leading-[80px] tracking-[0.1rem] text-theme-red lg:text-[120px]'>
             Reac<span className='italic'>t</span>
           </span>
           <span className='mb-5 block tracking-[-0.2rem] lg:text-[110px]'>
             Next.js
           </span>
-          <span className='text-theme-red block lg:text-[85px]'>
+          <span className='block text-theme-red lg:text-[85px]'>
             web developer
           </span>
           <span className='mt-5 block leading-[65px] tracking-[-0.1rem] lg:text-[70px]'>
@@ -20,7 +20,7 @@ export default function Hero() {
           </span>
 
           <p className='mt-20 w-full max-w-2xl text-pretty text-center font-proxima text-[1.5rem] font-normal normal-case leading-normal tracking-normal lg:text-[1.6rem]'>
-            I'm a <span className='font-bold'>Frontend Developer</span> |
+            I&apos;m a <span className='font-bold'>Frontend Developer</span> |
             Specialized in React.js and Next.js | Responsive Design and
             Performance Optimization | {''}
             <span className='font-bold'>Full-Stack Solutions</span> | Building
