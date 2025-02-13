@@ -1,26 +1,26 @@
-<svg width="72" height="83" viewBox="0 0 72 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_4_88" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="6" y="6" width="32" height="32">
-<circle cx="22.1619" cy="21.7085" r="15.501" transform="rotate(-37 22.1619 21.7085)" fill="#EB5939"/>
+<svg width="65" height="75" viewBox="0 0 65 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1_85" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="29" height="29">
+<circle cx="19.9367" cy="19.5288" r="13.9447" transform="rotate(-37 19.9367 19.5288)" fill="#EB5939"/>
 </mask>
-<g mask="url(#mask0_4_88)">
-<circle cx="11.4883" cy="32.7962" r="15.501" transform="rotate(-37 11.4883 32.7962)" fill="#B7AB98"/>
+<g mask="url(#mask0_1_85)">
+<circle cx="10.3347" cy="29.5033" r="13.9447" transform="rotate(-37 10.3347 29.5033)" fill="#B7AB98"/>
 </g>
-<mask id="mask1_4_88" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="16" width="32" height="32">
-<circle cx="49.6951" cy="32.2208" r="15.501" transform="rotate(52 49.6951 32.2208)" fill="#EB5939"/>
+<mask id="mask1_1_85" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="30" y="15" width="29" height="28">
+<circle cx="44.7056" cy="28.9857" r="13.9447" transform="rotate(52 44.7056 28.9857)" fill="#EB5939"/>
 </mask>
-<g mask="url(#mask1_4_88)">
-<circle cx="38.4228" cy="21.7423" r="15.501" transform="rotate(52 38.4228 21.7423)" fill="#B7AB98" fill-opacity="0.5"/>
+<g mask="url(#mask1_1_85)">
+<circle cx="34.565" cy="19.5593" r="13.9447" transform="rotate(52 34.565 19.5593)" fill="#B7AB98" fill-opacity="0.5"/>
 </g>
-<mask id="mask2_4_88" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="26" y="45" width="32" height="32">
-<circle cx="42.2918" cy="60.8383" r="15.501" transform="rotate(130 42.2918 60.8383)" fill="#EB5939"/>
+<mask id="mask2_1_85" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="23" y="40" width="29" height="29">
+<circle cx="37.6439" cy="54.3565" r="13.9447" transform="rotate(130 37.6439 54.3565)" fill="#EB5939"/>
 </mask>
-<g mask="url(#mask2_4_88)">
-<circle cx="49.2087" cy="49.2797" r="15.501" transform="rotate(130 49.2087 49.2797)" fill="#B7AB98"/>
+<g mask="url(#mask2_1_85)">
+<circle cx="43.8662" cy="43.9583" r="13.9447" transform="rotate(130 43.8662 43.9583)" fill="#EB5939"/>
 </g>
-<mask id="mask3_4_88" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="5" y="46" width="32" height="32">
-<circle cx="20.9639" cy="61.7085" r="15.501" transform="rotate(62 20.9639 61.7085)" fill="#EB5939"/>
+<mask id="mask3_1_85" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="42" width="29" height="29">
+<circle cx="18.8591" cy="56.141" r="13.9447" transform="rotate(62 18.8591 56.141)" fill="#EB5939"/>
 </mask>
-<g mask="url(#mask3_4_88)">
-<circle cx="12.0361" cy="50.9653" r="15.501" transform="rotate(62 12.0361 50.9653)" fill="#B7AB98" fill-opacity="0.56"/>
+<g mask="url(#mask3_1_85)">
+<circle cx="10.8276" cy="46.4765" r="13.9447" transform="rotate(62 10.8276 46.4765)" fill="#B7AB98" fill-opacity="0.56"/>
 </g>
 </svg>

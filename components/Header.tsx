@@ -1,36 +1,26 @@
+import NavLink from '@/components/NavLinks'
 import Link from 'next/link'
-import ThemeToggle from '@/components/ThemeToggle'
 import Image from 'next/image'
 import Logo from '@/assets/images/logo.svg'
 
 export default function Header() {
   return (
-    <header className='fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm'>
-      <nav className='text-theme-gray-shade container flex max-w-3xl items-center justify-between font-proxima text-[0.9rem] font-bold uppercase leading-[30px] tracking-[0.15rem]'>
-        <div>
-          <Link
-            href='/'
-            className='font-adventor text-[1.25rem] font-bold tracking-[0.15rem] text-[#B7AB98]'
-          >
-            Ilan Lavi
-          </Link>
-        </div>
-        <ul className='flex items-center gap-6 text-[#B7AB98]/50 sm:gap-10'>
-          <li className='transition-colors hover:text-[#B7AB98]'>
-            <Link href='/posts'>Posts</Link>
-          </li>
-          {/* <li className='transition-colors hover:text-[#B7AB98]'>
-            <Link href='/projects'>Projects</Link>
-          </li>
-          <li className='transition-colors hover:text-[#B7AB98]'>
-            <Link href='/contact'>Contact</Link>
-          </li> */}
-        </ul>
+    <div className='relative z-30 w-full overflow-hidden'>
+      <header className='bg-theme-black/85 fixed left-0 top-0 flex w-full items-center justify-between p-6 py-14 backdrop-blur-lg lg:px-14 lg:py-10'>
+        <Link href='/'>
+          <Image
+            src={Logo}
+            alt='Ilan Lavi - Web Developer Berlin'
+            className='w-12 lg:w-14'
+          ></Image>
+        </Link>
 
-        <div>
-          <ThemeToggle />
-        </div>
-      </nav>
-    </header>
+        <nav className='text-theme-gray-shade flex flex-col items-end font-proxima font-bold uppercase leading-[1.5625rem] lg:text-[0.9rem] lg:tracking-[0.15rem]'>
+          {/* <NavLink href='/work'>Work</NavLink> */}
+          <NavLink href='/posts'>Posts</NavLink>
+          {/* <NavLink href='/contact'>Contact</NavLink> */}
+        </nav>
+      </header>
+    </div>
   )
 }

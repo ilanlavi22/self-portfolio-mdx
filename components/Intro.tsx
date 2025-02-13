@@ -1,27 +1,44 @@
-import Image from 'next/image'
-import authorImage from '@/public/images/profile-sm.jpg'
-
 export default function Intro() {
   return (
-    <section className='flex flex-col-reverse items-start gap-x-10 gap-y-4 pb-24 md:flex-row md:items-center'>
-      <div className='font-proxima mt-2 flex-1 md:mt-0'>
-        <h1 className='title font-proxima no-underline'>Hey, I&#39;m Ilan.</h1>
-        <p className='font-proxima mt-3 text-pretty text-lg tracking-wide text-muted-foreground'>
-          I&#39;m a Frontend Developer | Specialized in React.js and Next.js |
-          Responsive Design and Performance Optimization | Full-Stack Solutions
-          | Building High-Performance, User-Focused Applications.
-        </p>
+    <section className='mx-auto flex w-full max-w-3xl justify-center text-center'>
+      <div className='relative z-10'>
+        <div className='text-theme-gray font-adventor font-bold uppercase leading-[0.85]'>
+          <p className='text-theme-gray/80 text-xl tracking-[0.25rem] lg:text-xl'>
+            Ilan Lavi
+          </p>
+          <p className='text-theme-red mt-3 text-[90px] tracking-[0.1rem] lg:mt-[30px] lg:text-[120px] lg:leading-[78px] lg:tracking-wide'>
+            Reac<span className='italic'>t</span>
+          </p>
+          <p className='mt-0.5 text-[80px] tracking-[-0.10rem] lg:mt-3.5 lg:text-[110px] lg:tracking-[-0.22rem]'>
+            Next.js
+          </p>
+
+          <p className='text-theme-red mb-1.5 mt-16 text-[40px] tracking-[0.1rem] lg:text-[84px]'>
+            web developer
+          </p>
+
+          <p className='text-[40px] tracking-[-0.1rem] lg:text-7xl'>
+            since <span className='italic'>2016</span>
+          </p>
+          <h1 className='mt-14 text-pretty px-8 font-proxima text-lg font-normal normal-case sm:px-8 md:px-12 lg:mt-12 lg:text-2xl'>
+            I'm a Frontend Developer specializing in React.js and Next.js, with
+            expertise in responsive design, performance optimization, and
+            delivering full-stack solutions to build high-performance,
+            user-focused applications.
+          </h1>
+        </div>
       </div>
-      <div className='relative'>
-        <Image
-          className='flex-1 rounded-lg'
-          src={authorImage}
-          alt='Ilan Lavi'
-          width={175}
-          height={175}
-          priority
-        />
-      </div>
+
+      <video
+        loop
+        autoPlay
+        controls={false}
+        muted
+        playsInline
+        className='absolute inset-0 left-0 top-0 z-0 h-full min-h-full w-full min-w-full max-w-none overflow-hidden !bg-transparent object-cover opacity-10'
+      >
+        <source src='footage/intro.mp4' type='video/mp4' />
+      </video>
     </section>
   )
 }

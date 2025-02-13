@@ -44,11 +44,22 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const { title, image, author, publishedAt } = metadata
 
   return (
-    <section className='pb-24 pt-32'>
-      <div className='container max-w-3xl'>
+    <section className='mt-40'>
+      <div className='mx-auto max-w-6xl px-8'>
+        <header>
+          <h1 className='text-theme-gray text-balance text-3xl font-bold leading-[1.1] lg:text-[52px]'>
+            {title}
+          </h1>
+          <p className='text-theme-red mt-3 font-bold uppercase'>
+            {formatDate(publishedAt ?? '')}
+          </p>
+        </header>
+      </div>
+
+      <div className='mx-auto max-w-6xl px-8 py-12 font-adventor'>
         <Link
           href='/posts'
-          className='mb-8 inline-flex items-center gap-2 text-sm font-light text-muted-foreground transition-colors hover:text-foreground'
+          className='text-theme-gray mb-8 inline-flex items-center gap-2 text-sm font-bold'
         >
           <ArrowLeftIcon className='h-5 w-5' />
           <span>Back to posts</span>
@@ -65,14 +76,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        <header>
-          <h1 className='title'>{title}</h1>
-          <p className='mt-3 text-xs text-muted-foreground'>
-            {author} / {formatDate(publishedAt ?? '')}
-          </p>
-        </header>
-
-        <main className='prose mt-16 dark:prose-invert'>
+        <main className='text-theme-gray prose mt-16 max-w-none font-proxima text-base dark:prose-invert'>
           <MDXContent source={content} />
         </main>
 

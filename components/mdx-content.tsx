@@ -23,7 +23,10 @@ export default function MDXContent(
   return (
     <MDXRemote
       {...props}
-      components={{ ...components, ...(props.components || {}) }}
+      components={{
+        ...components,
+        ...(props.components || {})
+      }}
     />
   )
 }

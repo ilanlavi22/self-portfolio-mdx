@@ -21,11 +21,11 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
 
   return (
     <div>
-      <div className='mb-12 flex items-center gap-3'>
+      <div className='text-theme-gray mx-auto mb-12 flex max-w-6xl items-center gap-3 px-8 font-adventor'>
         <Input
           type='text'
           placeholder='Search posts...'
-          className='h-9 w-full sm:w-1/2'
+          className='border-theme-gray placeholder-theme-gray h-9 w-full rounded-lg font-adventor'
           value={query}
           onChange={e => setQuery(e.target.value)}
         />
@@ -34,15 +34,21 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
             size='sm'
             variant='secondary'
             onClick={resetFilter}
-            className='h-8 px-2 lg:px-3'
+            className='h-8 px-2 text-base lg:px-3'
           >
             Reset
-            <X className='ml-2 h-4 w-4' />
+            <X className='ml-2 h-5 w-5' />
           </Button>
         )}
       </div>
-
-      <Posts posts={filtered} />
+      {filtered.length === 0 ? (
+        <div className='text-theme-gray flex flex-col items-center justify-center px-8 font-adventor'>
+          No posts found for "{query}"{' '}
+          <span className='block'> Please try another search term.</span>
+        </div>
+      ) : (
+        <Posts posts={filtered} />
+      )}
     </div>
   )
 }

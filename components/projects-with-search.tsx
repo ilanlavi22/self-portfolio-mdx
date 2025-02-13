@@ -24,8 +24,8 @@ export default function ProjectsWithSearch({
   }
 
   return (
-    <div>
-      <div className='mb-12 flex items-center gap-3'>
+    <div className=''>
+      <div className=''>
         <Input
           type='text'
           placeholder='Search posts...'

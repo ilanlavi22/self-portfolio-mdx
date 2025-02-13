@@ -10,12 +10,13 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | React.js Frontend Developer | Next.js Full-Stack Developer',
-    default: 'Ilan Lavi - Berlin-based React.js Frontend Developer'
+    template:
+      '%s | Frontend and Full Stack Developer in Berlin | React.js and Next.js',
+    default: 'Ilan Lavi - Frontend and Full-Stack Developer in Berlin'
   },
 
   description:
-    'Ilan Lavi is a Berlin-based React.js Frontend Developer with a focus on Next.js Full-Stack Development.'
+    'Ilan Lavi, a Berlin-based frontend and full-stack developer specializing in React.js and Next.js. Providing modern web development, UX/UI design, and cutting-edge solutions to elevate your digital presence.'
 }
 
 export default function RootLayout({
@@ -31,7 +32,7 @@ export default function RootLayout({
     >
       <body
         className={cn(
-          `${`${proxima.className}`} flex min-h-screen flex-col antialiased`
+          `${`${proxima.className}`} bg-theme-black flex min-h-svh flex-col antialiased`
         )}
       >
         <Providers>

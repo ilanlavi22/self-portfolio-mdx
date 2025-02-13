@@ -2,6 +2,8 @@
 
 import { ThemeProvider, useTheme } from 'next-themes'
 import { Toaster } from '@/components/ui/sonner'
+import { useEffect, useState, createContext } from 'react'
+import Lenis from 'lenis'
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -11,8 +13,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       defaultTheme='system'
       disableTransitionOnChange
     >
-      {children}
       <ToasterProvider />
+      <ScrollContext>{children}</ScrollContext>
     </ThemeProvider>
   )
 }
@@ -24,5 +26,44 @@ function ToasterProvider() {
       position='top-right'
       theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
     />
+  )
+}
+
+const SmoothScrollContext = createContext<Lenis | null>(null)
+
+function ScrollContext({ children }: { children: React.ReactNode }) {
+  const [lenisRef, setLenisRef] = useState<Lenis | null>(null)
+  const [rafState, setRafState] = useState<number | null>(null)
+
+  useEffect(() => {
+    const scroller = new Lenis({
+      // duration: 0.5,
+      // infinite: false,
+      // easing: t => t
+    })
+    let rf
+
+    function raf(time: number) {
+      scroller.raf(time)
+      requestAnimationFrame(raf)
+    }
+    rf = requestAnimationFrame(raf)
+    setRafState(rf)
+    setLenisRef(scroller)
+
+    return () => {
+      if (rafState !== null) {
+        cancelAnimationFrame(rafState)
+      }
+      if (lenisRef !== null) {
+        lenisRef.destroy()
+      }
+    }
+  }, [])
+
+  return (
+    <SmoothScrollContext.Provider value={lenisRef}>
+      {children}
+    </SmoothScrollContext.Provider>
   )
 }
