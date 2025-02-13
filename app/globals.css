@@ -41,19 +41,15 @@
   }
 }
 
-@layer components {
-  .stack-skills {
-    @apply !m-0 !p-0 font-proxima !text-[11px] font-bold uppercase leading-none text-white/80;
-    div {
-      @apply !gap-x-5 !gap-y-3;
-
-      div {
-        @apply !mt-0;
-      }
-
-      svg {
-        @apply !h-5 !w-5;
-      }
-    }
+.stack-skills {
+  @apply !m-0 !p-0 font-proxima !text-[11px] font-bold uppercase leading-none text-white/80;
+  .stack-skills > div {
+    @apply !gap-x-5 !gap-y-3;
+  }
+  .stack-skills > div > div {
+    @apply !mt-0;
+  }
+  .stack-skills > div > svg {
+    @apply !h-5 !w-5;
   }
 }
