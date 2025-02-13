@@ -25,7 +25,7 @@
   }
 
   .prose pre {
-    @apply bg-theme-gray-shade/20 overflow-x-auto rounded-lg px-5 py-4 text-sm;
+    @apply overflow-x-auto rounded-lg bg-theme-gray-shade/20 px-5 py-4 text-sm;
   }
 
   .prose code {
@@ -41,19 +41,17 @@
   }
 }
 
-@layer components {
-  .stack-skills {
-    @apply !m-0 !p-0 font-proxima !text-[11px] font-bold uppercase leading-none text-white/80;
+.stack-skills {
+  @apply !m-0 !p-0 font-proxima !text-[11px] font-bold uppercase leading-none text-white/80;
+  div {
+    @apply w-auto gap-x-5 gap-y-3;
+
     div {
-      @apply gap-x-5 gap-y-3;
+      @apply !mt-0;
+    }
 
-      div {
-        @apply !mt-0;
-      }
-
-      svg {
-        @apply !h-5 !w-5;
-      }
+    svg {
+      @apply !h-5 !w-5;
     }
   }
 }
