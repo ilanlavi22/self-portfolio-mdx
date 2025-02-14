@@ -3,10 +3,16 @@ import Link from 'next/link'
 
 import { formatDate } from '@/lib/utils'
 import MDXContent from '@/components/mdx-content'
-import { getPostBySlug } from '@/lib/posts'
+import { getPostBySlug, getPosts } from '@/lib/posts'
 import { ArrowLeftIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+
+export async function generateStaticParams() {
+  const posts = await getPosts()
+  const slugs = posts.map(post => ({ slug: post.slug }))
+  return slugs
+}
 
 export async function generateMetadata({
   params
