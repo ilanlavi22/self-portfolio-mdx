@@ -6,7 +6,7 @@ import RecentPosts from '@/components/RecentPosts'
 
 export default function Home() {
   return (
-    <section className='mt-40'>
+    <section className='mt-44'>
       <div>
         <Intro />
         <Stack />

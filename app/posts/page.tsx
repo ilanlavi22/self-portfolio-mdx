@@ -11,9 +11,9 @@ export default async function PostsPage() {
   const posts = await getPosts()
 
   return (
-    <section className='mt-40'>
+    <section className='mt-44'>
       <div className='mx-auto max-w-6xl px-8'>
-        <h2 className='text-theme-gray text-balance text-3xl font-bold leading-[1.1] lg:text-[52px]'>
+        <h2 className='text-balance text-3xl font-bold leading-[1.1] text-theme-gray lg:text-[52px]'>
           <span className='text-theme-red'>The Code Corner</span>
           <span> Posts for Pros </span>
           <span className='text-theme-red'>Web Development</span>

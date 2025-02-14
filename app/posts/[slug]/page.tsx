@@ -3,31 +3,32 @@ import Link from 'next/link'
 
 import { formatDate } from '@/lib/utils'
 import MDXContent from '@/components/mdx-content'
-import { getPosts, getPostBySlug } from '@/lib/posts'
+import { getPostBySlug } from '@/lib/posts'
 import { ArrowLeftIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
-
-export async function generateStaticParams() {
-  const posts = await getPosts()
-  const slugs = posts.map(post => ({ slug: post.slug }))
-
-  return slugs
-}
+import { Metadata } from 'next'
 
 export async function generateMetadata({
   params
 }: {
   params: { slug: string }
-}) {
+}): Promise<Metadata> {
   const { slug } = params
   const post = await getPostBySlug(slug)
   const title = post?.metadata.title
 
   return {
     title: `${title} | React.js Frontend Developer | Next.js Full-Stack  Developer`,
-
     description:
-      'Ilan Lavi is a Berlin-based React.js Frontend Developer with a focus on Next.js Full-Stack Development.'
+      post?.metadata.summary ||
+      'I am a React.js Frontend Developer and Next.js Full-Stack Developer. I write about React.js, Next.js, TypeScript, Tailwind CSS, and more.',
+    openGraph: {
+      images: [
+        {
+          url: post?.metadata.image || ''
+        }
+      ]
+    }
   }
 }
 
@@ -43,7 +44,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const { title, image, publishedAt } = metadata
 
   return (
-    <section className='mt-40'>
+    <section className='mt-44'>
       <div className='mx-auto max-w-6xl px-8'>
         <header>
           <h1 className='text-balance text-3xl font-bold leading-[1.1] text-theme-gray lg:text-[52px]'>
