@@ -1,0 +1,126 @@
+---
+  title: Understanding the `after()` Function in Next.js.
+  summary: Learn how to use the `after()` function in Next.js to execute background tasks without blocking the response.
+  image: /images/posts/understanding-after-function-in-next-js.webp
+  author: 'Ilan Lavi'
+  publishedAt: '2025-02-17'
+---
+
+## Introduction
+
+In Next.js, the `after()` function allows developers to schedule work that
+should be executed after a response has been sent. This is particularly useful
+for non-blocking side effects such as logging, analytics, and background tasks.
+Without `after()`, these operations could delay response times, forcing users to
+wait unnecessarily. By leveraging `after()`, developers can improve performance
+while ensuring that necessary post-response operations are still executed.
+
+## Where Can `after()` Be Used?
+
+The `after()` function can be utilized in the following scenarios:
+
+- **Server Components**
+- **Server Actions**
+- **Route Handlers**
+- **Middleware**
+
+## Example Usage
+
+Consider a scenario where we want to log a page view but don’t want to block the
+response. We can define a logging function and use `after()` to execute it
+asynchronously after the response is sent.
+
+```tsx
+// lib/utils.ts
+export async function log() {
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  console.log('Page view logged')
+}
+```
+
+Next, we integrate `after()` within a server component:
+
+```tsx
+import { after } from 'next/server'
+import { log } from '@/lib/utils'
+
+export default function Page() {
+  // Executes after response is sent
+  after(async () => await log())
+
+  return (
+    <div>
+      <h1>Welcome to My Page</h1>
+    </div>
+  )
+}
+```
+
+## Important Notes
+
+- **`after()`** is not a Dynamic API. Calling `after()` does not make a route
+  dynamic. If used within a static page, the callback will execute only at build
+  time or during revalidation.
+- **Executes Even on Errors** – The `after()` callback runs even if the response
+  fails, including cases where an error is thrown or when `noFound()` or
+  `redirect()` is called.
+- **Deduplication with React Cache** – You can use React's cache to prevent
+  redundant function calls within `after()`.
+- **Nested Calls** – `after()` can be nested within other `after()` calls.
+- **APIs Access Restrictions** – In **Server Actions** and **Route Handlers**,
+  you can access APIs like cookies and headers within `after()`. However, in
+  **Server Components**, this is not possible.
+
+## Alternative: `waitUntil()`
+
+Vercel provides an alternative function, `waitUntil()`, which schedules tasks
+slightly differently:
+
+<table>
+  <thead>
+    <tr>
+      <th align='center'>Feature</th>
+      <th align='right'>`after()`</th>
+      <th align='right'>`waitUntil()`</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align='center'>Execution Time</td>
+      <td align='right'>After the response is sent</td>
+      <td align='right'>During the request lifecycle</td>
+    </tr>
+    <tr>
+      <td align='center'>Accepts</td>
+      <td align='right'>A callback function</td>
+      <td align='right'>A promise</td>
+    </tr>
+  </tbody>
+</table>
+
+### Use Case Example: Authentication Middleware
+
+A practical scenario for using `after()` is tracking user activity without
+blocking page rendering. For instance, when using **Clerk** for authentication,
+we may want to log the user's last visit without delaying page load.
+
+```tsx
+import { after } from 'next/server'
+import { updateLastLogin } from '@/lib/auth'
+
+export function middleware(req) {
+  after(async () => await updateLastLogin(req))
+  return NextResponse.next()
+}
+```
+
+In this case, `updateLastLogin()` runs after the middleware completes, ensuring
+that the page loads quickly while still recording user activity.
+
+## Conclusion
+
+The `after()` function is a powerful tool in Next.js for executing background
+tasks without affecting response times. It improves performance by ensuring that
+non-essential operations occur asynchronously. By understanding its behavior and
+alternatives like `waitUntil()`, developers can make informed decisions on when
+and how to use it effectively.
