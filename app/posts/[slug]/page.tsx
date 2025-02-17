@@ -82,7 +82,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        <main className='prose mt-16 max-w-none font-proxima text-base text-theme-gray dark:prose-invert'>
+        <main className='prose mt-16 max-w-none font-proxima text-lg text-theme-gray dark:prose-invert'>
           <MDXContent source={content} />
         </main>
 

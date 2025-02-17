@@ -4,20 +4,26 @@
 
 @layer base {
   :root {
-    --sh-identifier: #354150;
+    --sh-identifier: #f47067;
     --sh-keyword: #f47067;
-    --sh-string: #00a99a;
+    --sh-string: #bedf5c;
     --sh-class: #89ddfa;
-    --sh-property: #4e8fdf;
-    --sh-entity: #6eafad;
+    --sh-property: #89ddfa;
+    --sh-entity: #89ddfa;
     --sh-jsxliterals: #bf7db6;
     --sh-sign: #8996a3;
     --sh-comment: #a19595;
   }
   .dark {
     --sh-identifier: #89ddfa;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
+    --sh-keyword: #89ddfa;
+    --sh-string: #bedf5c;
+    --sh-class: #f47067;
+    --sh-property: #f47067;
+    --sh-entity: #f47067;
+    --sh-jsxliterals: #bf7db6;
+    --sh-sign: #8996a3;
+    --sh-comment: #a19595;
   }
 
   body {
@@ -25,19 +31,11 @@
   }
 
   .prose pre {
-    @apply overflow-x-auto rounded-lg bg-theme-gray-shade/20 px-5 py-4 text-sm;
+    @apply overflow-x-auto rounded-lg bg-[#202020] px-5 py-4 text-sm leading-5;
   }
 
   .prose code {
     @apply rounded-lg px-1 py-0.5;
-  }
-
-  .prose pre code {
-    @apply p-0 leading-3;
-  }
-
-  .prose code span {
-    @apply font-proxima text-base font-medium;
   }
 }
 
