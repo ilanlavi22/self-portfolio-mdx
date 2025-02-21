@@ -1,0 +1,126 @@
+---
+  title: Managing Multiple Providers in One File in Next.js
+  summary: In a Next.js project, it's common to use multiple providers for authentication, theming, and notifications. Instead of managing each provider in separate files, you can consolidate them into a single Providers.tsx file. This keeps your codebase cleaner and more maintainable.
+  image: /images/posts/mastering-seo-in-next-js.png
+  author: 'Ilan Lavi'
+  publishedAt: '2025-02-21'
+---
+
+## Introduction
+
+In a Next.js project, it's common to use multiple providers for authentication,
+theming, and notifications. Instead of managing each provider in separate files,
+you can consolidate them into a single `Providers.tsx` file. This keeps your
+codebase cleaner and more maintainable.
+
+In this article, we’ll walk through setting up a unified `Providers.tsx`
+component in a Next.js application using:
+
+- **KindeProvider** for authentication
+- **ThemeProvider** for dark/light mode support
+- **ToasterProvider** for displaying notifications
+
+## 📌 Why Use a Single `Providers.tsx` File?
+
+✅ **Simplifies project structure** – No need to create separate files for each
+provider. ✅ **Improves maintainability** – Centralizes provider logic in one
+place. ✅ **Prevents unnecessary re-renders** – Ensures correct provider
+hierarchy. ✅ **Enhances readability** – Makes it easier to track
+application-wide context.
+
+## 🚀 Step-by-Step Implementation
+
+### 1️⃣ Create a `Providers.tsx` File
+
+Inside your `components/` folder, create a file named `Providers.tsx` and add
+the following code:
+
+```tsx
+'use client'
+
+import { KindeProvider } from '@kinde-oss/kinde-auth-nextjs'
+import { ThemeProvider, useTheme } from 'next-themes'
+import { Toaster } from '@/components/ui/sonner'
+
+export default function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <KindeProvider>
+      <ThemeProvider
+        enableSystem
+        attribute='class'
+        defaultTheme='dark'
+        disableTransitionOnChange
+      >
+        {children}
+        <ThemedToaster />
+      </ThemeProvider>
+    </KindeProvider>
+  )
+}
+
+function ThemedToaster() {
+  const { resolvedTheme } = useTheme()
+
+  if (!resolvedTheme) return null // Avoids hydration errors
+
+  return (
+    <Toaster
+      closeButton
+      richColors
+      position='top-center'
+      theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
+    />
+  )
+}
+```
+
+### 2️⃣ Use the `Providers` Component in `layout.tsx`
+
+Now, update your `layout.tsx` file to wrap your application with the `Providers`
+component.
+
+```tsx
+import type { Metadata } from 'next'
+import './globals.css'
+import Providers from '@/components/Providers'
+import Navbar from '@/components/Navbar'
+
+export const metadata: Metadata = {
+  title: 'Next.js App',
+  description: 'Next.js Application with Consolidated Providers'
+}
+
+export default function RootLayout({
+  children
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang='en' suppressHydrationWarning>
+      <body>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
+      </body>
+    </html>
+  )
+}
+```
+
+## 🔥 Benefits of This Approach
+
+- **Ensures Correct Provider Order**: Providers that depend on others (e.g.,
+  `useTheme`) will work correctly.
+- **Prevents `useTheme` Errors**: The `Toaster` component is placed inside
+  `ThemeProvider` to avoid hydration issues.
+- **Cleaner and More Scalable**: Adding new providers (like Redux, Apollo, or
+  React Query) becomes easier.
+
+### 🏁 Conclusion
+
+By consolidating all providers into a single `Providers.tsx` file, you can
+significantly improve the structure and maintainability of your Next.js project.
+This approach simplifies setup, reduces clutter, and ensures that all global
+contexts are correctly applied throughout your application.
+
+🚀 Now you have a clean, efficient way to manage your providers in Next.js!
+Happy coding! 🎉
