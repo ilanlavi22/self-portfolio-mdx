@@ -30,30 +30,41 @@ export default async function Project({
   const { title, image, author, publishedAt } = metadata
 
   return (
-    <section className='pb-24 pt-32'>
-      <div className='container max-w-3xl'>
+    <section className='mt-44'>
+      <div className='mx-auto max-w-6xl px-8'>
+        <header>
+          <h1 className='text-balance text-3xl font-bold leading-[1.1] text-theme-gray lg:text-[52px]'>
+            {title}
+          </h1>
+          <p className='mt-3 font-bold uppercase text-theme-red'>
+            {formatDate(publishedAt ?? '')}
+          </p>
+        </header>
+      </div>
+      <div className='mx-auto max-w-6xl px-8 py-12 font-adventor'>
         <Link
           href='/projects'
-          className='mb-8 inline-flex items-center gap-2 text-sm font-light text-muted-foreground transition-colors hover:text-foreground'
+          className='mb-8 inline-flex items-center gap-2 text-sm font-bold text-theme-gray'
         >
           <ArrowLeftIcon className='h-5 w-5' />
           <span>Back to projects</span>
         </Link>
 
         {image && (
-          <div className='relative mb-6 h-96 w-full overflow-hidden rounded-lg'>
+          <div className='mb-6 h-full w-full rounded-lg'>
             <Image
               src={image}
               alt={title || ''}
-              className='object-cover'
-              fill
+              className='w-full object-cover object-top'
+              width={1200}
+              height={600}
             />
           </div>
         )}
 
         <header>
           <h1 className='title'>{title}</h1>
-          <p className='mt-3 text-xs text-muted-foreground'>
+          <p className='text-muted-foreground mt-3 text-xs'>
             {author} / {formatDate(publishedAt ?? '')}
           </p>
         </header>

@@ -20,17 +20,16 @@ component in a Next.js application using:
 - **ThemeProvider** for dark/light mode support
 - **ToasterProvider** for displaying notifications
 
-## 📌 Why Use a Single `Providers.tsx` File?
+## Why Use a Single `Providers.tsx` File?
 
-✅ **Simplifies project structure** – No need to create separate files for each
-provider. ✅ **Improves maintainability** – Centralizes provider logic in one
-place. ✅ **Prevents unnecessary re-renders** – Ensures correct provider
-hierarchy. ✅ **Enhances readability** – Makes it easier to track
-application-wide context.
+**Simplifies project structure** – No need to create separate files for each
+provider. **Improves maintainability** – Centralizes provider logic in one
+place. **Prevents unnecessary re-renders** – Ensures correct provider hierarchy.
+**Enhances readability** – Makes it easier to track application-wide context.
 
-## 🚀 Step-by-Step Implementation
+## Step-by-Step Implementation
 
-### 1️⃣ Create a `Providers.tsx` File
+### 1. Create a `Providers.tsx` File
 
 Inside your `components/` folder, create a file named `Providers.tsx` and add
 the following code:
@@ -74,7 +73,7 @@ function ThemedToaster() {
 }
 ```
 
-### 2️⃣ Use the `Providers` Component in `layout.tsx`
+### 2. Use the `Providers` Component in `layout.tsx`
 
 Now, update your `layout.tsx` file to wrap your application with the `Providers`
 component.
@@ -106,7 +105,7 @@ export default function RootLayout({
 }
 ```
 
-## 🔥 Benefits of This Approach
+## Benefits of This Approach
 
 - **Ensures Correct Provider Order**: Providers that depend on others (e.g.,
   `useTheme`) will work correctly.
@@ -115,12 +114,12 @@ export default function RootLayout({
 - **Cleaner and More Scalable**: Adding new providers (like Redux, Apollo, or
   React Query) becomes easier.
 
-### 🏁 Conclusion
+### Conclusion
 
 By consolidating all providers into a single `Providers.tsx` file, you can
 significantly improve the structure and maintainability of your Next.js project.
 This approach simplifies setup, reduces clutter, and ensures that all global
 contexts are correctly applied throughout your application.
 
-🚀 Now you have a clean, efficient way to manage your providers in Next.js!
-Happy coding! 🎉
+Now you have a clean, efficient way to manage your providers in Next.js! Happy
+coding!

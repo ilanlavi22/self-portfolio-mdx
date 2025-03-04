@@ -28,16 +28,6 @@ export default function Hero() {
           </p>
         </p>
       </div>
-
-      <video
-        className='sticky inset-0 left-0 top-0 z-0 h-full w-full overflow-hidden !bg-transparent object-cover opacity-10'
-        src='video_preview22_new.mp4'
-        loop
-        autoPlay
-        controls={false}
-        muted
-        playsInline
-      />
     </div>
   )
 }
