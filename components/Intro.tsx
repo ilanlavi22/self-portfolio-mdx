@@ -28,17 +28,6 @@ export default function Intro() {
           </h1>
         </div>
       </div>
-
-      <video
-        loop
-        autoPlay
-        controls={false}
-        muted
-        playsInline
-        className='absolute inset-0 left-0 top-0 z-0 h-full min-h-full w-full min-w-full max-w-none overflow-hidden !bg-transparent object-cover opacity-10'
-      >
-        <source src='footage/intro.mp4' type='video/mp4' />
-      </video>
     </section>
   )
 }
