@@ -13,15 +13,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
       url: 'https://ilanlavi.com',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1
+      lastModified: new Date()
     },
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1
+      lastModified: new Date()
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/work`,
+      lastModified: new Date()
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
+      lastModified: new Date()
     },
     ...postEntries
   ]
