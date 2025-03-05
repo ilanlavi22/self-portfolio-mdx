@@ -11,11 +11,11 @@ export default async function ContactPage() {
           <span> about your project</span>
         </h2>
         <p className='mt-14 pb-3 font-proxima text-lg font-medium text-theme-gray'>
-          Here’s a selection of my latest projects, ranging from SaaS
-          applications to scalable web platforms. Each project is built with a
-          strong focus on UX/UI, performance, and maintainability. My tech stack
-          includes React, TypeScript, Next.js, PostgreSQL with Prisma, and
-          TailwindCSS, ensuring modern, scalable, and reusable components.
+          I'm eager to embrace fresh challenges in both freelancing and
+          traditional employment. Whether you seek a freelance partner or aim to
+          enhance your team with a committed professional, I'm ready to
+          collaborate with innovative organizations and individuals who
+          appreciate expertise, creativity, and unwavering dedication.
         </p>
 
         <div className='flex items-center justify-center md:justify-start'>
