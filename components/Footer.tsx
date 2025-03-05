@@ -62,9 +62,9 @@ export default function Footer() {
           </div>
 
           <nav className='mt-4 flex items-center justify-center gap-2 font-proxima text-sm font-bold uppercase text-theme-gray-shade md:mt-0'>
-            {/* <NavLink href='/work'>Work</NavLink> */}
+            <NavLink href='/work'>Work</NavLink>
             <NavLink href='/posts'>Posts</NavLink>
-            {/* <NavLink href='/contact'>Contact</NavLink> */}
+            <NavLink href='/contact'>Contact</NavLink>
           </nav>
         </div>
         <div className='mt-3 text-center font-proxima text-sm text-theme-gray-shade'>
