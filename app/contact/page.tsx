@@ -1,16 +1,21 @@
+import type { Metadata } from 'next'
 import infoImage from '../../assets/images/info.png'
-import { Linkedin, Github, AtSign } from 'lucide-react'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Let’s talk about your project'
+}
 
 export default async function ContactPage() {
   return (
-    <section className='mt-44'>
+    <section className='mt-48'>
       <div className='mx-auto max-w-6xl px-8'>
         <h2 className='text-balance text-3xl font-bold leading-[1.1] text-theme-gray lg:text-[52px]'>
           <span className='text-theme-red'>Let’s talk</span>{' '}
           <span> about your project</span>
         </h2>
-        <p className='mt-14 pb-3 font-proxima text-lg font-medium text-theme-gray'>
+        <p className='mt-8 pb-3 font-proxima text-lg font-medium text-theme-gray'>
           I'm eager to embrace fresh challenges in both freelancing and
           traditional employment. Whether you seek a freelance partner or aim to
           enhance your team with a committed professional, I'm ready to

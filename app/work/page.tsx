@@ -1,17 +1,23 @@
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import mutegroup from '/public/images/projects/mut-group.png'
 import arggroup from '/public/images/projects/agric-group.png'
 import immogroup from '/public/images/projects/immo-group.png'
 import ProjectStack from '@/components/ProjectStack'
 
+export const metadata: Metadata = {
+  title: 'Work',
+  description: 'Latest Projects'
+}
+
 export default async function ProjectPage() {
   return (
-    <section className='mt-44'>
+    <section className='mt-48'>
       <div className='mx-auto max-w-6xl px-8'>
         <h2 className='text-balance text-3xl font-bold leading-[1.1] text-theme-gray lg:text-[52px]'>
-          <span>Latest Projects</span>
+          <span>Latest</span> <span className='text-theme-red'>Projects</span>
         </h2>
-        <p className='pb-3 font-proxima text-lg font-medium text-theme-gray'>
+        <p className='mt-8 pb-3 font-proxima text-lg font-medium text-theme-gray'>
           Here’s a selection of my latest projects, ranging from SaaS
           applications to scalable web platforms. Each project is built with a
           strong focus on UX/UI, performance, and maintainability. My tech stack
